@@ -183,7 +183,7 @@ export const questions = [
             {text: "Null type."},
             {text: "Undefined type."},
             {text: "Number type."},
-            {text: " All of the above."},
+            {text: "All of the above."},
             {correct: "All of the above."}  
         ]
     },

@@ -9,24 +9,55 @@
     <script src="https://kit.fontawesome.com/beced1c515.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="main">
-        <h2 class="question">Question</h2>
-        <button id="b1" class="button">Option 1 <!-- <i class="fa fa-check"></i> <i class="fa fa-circle-xmark"></i><!--></button>
-        <button id="b2" class="button">Option 2 <!-- <i class="fa fa-check"></i> <i class="fa fa-circle-xmark"></i><!--></button>
-        <button id="b3" class="button">Option 3 <!-- <i class="fa fa-check"></i> <i class="fa-regular fa-circle-xmark"></i<!--></button>
-        <button id="b4" class="button">Option 4 <!-- <i class="fa fa-check"></i> <i class="fa-regular fa-circle-xmark"></i<!--></button>
+    <div class="quiz_box">
+        <header>
+            <div class="title">Quiz Fudido</div>
+            <div class="timer">
+                <div class="time_text">Time left</div>
+                <div class="time_seconds"></div>
+            </div>
+        </header>
+        <section>
+            <div class="que_text"> 
+                <span class="question">Question</span>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <button id="b1" class="button">Option 1 </button>
+                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
+                </div>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <button id="b2" class="button">Option 2 </button>
+                    <!-- <div class="icon"><i class="fa fa-times"></i></div> -->
+                </div>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <button id="b3" class="button">Option 3 </button>
+                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
+                </div>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <button id="b4" class="button">Option 4 </button>
+                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="total_que">
+                <span>
+                    <p class="timeQuestion">1</p>
+                    of
+                    <p>5</p>
+                    Questions
+                </span>
+            </div>
+            <button class="next_btn">Next Question</button>
+        </footer>
         <p id="frase"></p>
-        <div class="main_footer">
-            <div class="questions">
-                <strong><span>1</span></strong>
-                <p>of</p>
-                <strong><span>5</span></strong>
-                <p>Questions</p>
-            </div>
-            <div>
-                <button class="next">Next</button>
-            </div>
-        </div>
     </div>
     <script src="script.js" type="module"></script>
 </body>
