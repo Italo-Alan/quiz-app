@@ -75,18 +75,15 @@ let seconds = document.querySelector('.time_seconds');
 let countdown = 5;
 seconds.innerHTML = countdown;
 
-function teste(e){
-    // e.preventDefault();
+function teste(){
     countdown = 5;
     getQuestions();
     let times = document.querySelector('.timeQuestion');
     count++
     times.innerHTML = count;
-    setInterval(contador, 1000)
-
 }
 
-let contador = setInterval( (e)=>{
+let contador = setInterval( function (e){
    countdown -= 1;
    seconds.innerHTML = countdown;
 
