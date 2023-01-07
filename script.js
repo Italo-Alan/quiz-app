@@ -53,14 +53,8 @@ function rightAnswers(){
 
 rightAnswers()
 
-
-
 //Click dos botões
 let buttons = document.querySelectorAll('.button');
-
-
-
-
 
 for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', (e)=> {
@@ -77,18 +71,28 @@ for(let i = 0; i < buttons.length; i++){
 }
 
 let nextButton = document.querySelector('.next_btn').addEventListener('click', teste);
+let seconds = document.querySelector('.time_seconds');
+let countdown = 5;
+seconds.innerHTML = countdown;
 
 function teste(e){
-    e.preventDefault();
+    // e.preventDefault();
+    countdown = 5;
     getQuestions();
     let times = document.querySelector('.timeQuestion');
     count++
     times.innerHTML = count;
+    setInterval(contador, 1000)
 
-    // if(count == 5){
-    //     nextButton.innerHTML = "Finish Quiz";
-    // }
 }
 
-// let time = 30;
-let seconds = document.querySelector('.time_seconds');
+let contador = setInterval( (e)=>{
+   countdown -= 1;
+   seconds.innerHTML = countdown;
+
+   if(countdown == 0){
+    clearInterval(contador);
+    teste();
+   }
+}, 1000);
+
