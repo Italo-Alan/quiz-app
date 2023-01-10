@@ -62,7 +62,7 @@ export const questions = [
             {text: "RMI"},
             {text: "Preprocessor"},
             {text: "Function / Method"},
-            {text: "None of the above"},
+            {text: "None of the options"},
             {correct: "Function / Method"}  
         ]
     },
@@ -116,7 +116,7 @@ export const questions = [
         answers: [
             {text: "Programming"},
             {text: "Application"},
-            {text: "None of the above"},
+            {text: "None of the options"},
             {text: "Scripting"},
             {correct: "Scripting"}  
         ]
@@ -136,11 +136,11 @@ export const questions = [
         id: 12,
         question: "JavaScript can be written",
         answers: [
-            {text: "directly on the Server Script"},
-            {text: "directly into HTML pages"},
-            {text: "All of the above"},
-            {text: "None of the above"},
-            {correct: "directly into HTML pages"}  
+            {text: "Directly on the Server Script"},
+            {text: "Directly into HTML pages"},
+            {text: "Directly into CSS"},
+            {text: "None of the options"},
+            {correct: "Directly into HTML pages"}  
         ]
     },
     {
@@ -161,7 +161,7 @@ export const questions = [
             {text: "Server"},
             {text: "Browser"},
             {text: "ISP"},
-            {text: "None of the above"},
+            {text: "None of the options"},
             {correct: "Browser"}  
         ]
     },
@@ -183,8 +183,8 @@ export const questions = [
             {text: "Null type."},
             {text: "Undefined type."},
             {text: "Number type."},
-            {text: "All of the above."},
-            {correct: "All of the above."}  
+            {text: "All of the options."},
+            {correct: "All of the options."}  
         ]
     },
     {
@@ -194,7 +194,7 @@ export const questions = [
             {text: "JavaScript is a scripting language used to make the website interactive."},
             {text: "JavaScript is an assembly language used to make the website interactive."},
             {text: "JavaScript is a compiled language used to make the website interactive."},
-            {text: "None of the above."},
+            {text: "None of the options."},
             {correct: "JavaScript is a scripting language used to make the website interactive."}  
         ]
     },
@@ -216,7 +216,7 @@ export const questions = [
             {text: "JavaScript is a function that is enclosed with references to its inner function scope."},
             {text: "JavaScript is a function that is enclosed with references to its lexical environment."},
             {text: "JavaScript is a function that is enclosed with the object to its inner function scope."},
-            {text: "None of the above."},
+            {text: "None of the options."},
             {correct: "JavaScript is a function that is enclosed with references to its lexical environment."}  
         ]
     },

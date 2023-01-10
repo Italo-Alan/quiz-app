@@ -2,6 +2,7 @@ import { questions } from './questions.js'
 let numbers = [];
 let arrayQuestions = [];
 let correctAnswers = [];
+let arr = [0,1,2,3];
 let count = 1;
 let hitCount = 0;
 let countQuest = 0
@@ -21,15 +22,29 @@ function randomNumbers(){
 
 randomNumbers()
 
+//Gera as opções trocadas;
+function randomOptions(array) {
+let currentIndex = array.length,  randomIndex;
+
+while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+    array[randomIndex], array[currentIndex]];
+}
+
+return array;
+}
+
 //Exibe as perguntas e opções
 function getQuestions(){
-    
     document.querySelector('.question').textContent = arrayQuestions[countQuest].question;
     const buttons = document.querySelectorAll('.button');
     for(let i = 0; i < 4; i++){
-        buttons[i].textContent = arrayQuestions[countQuest].answers[i].text;
+        console.log(arr[i])
+        buttons[i].textContent = arrayQuestions[countQuest].answers[arr[i]].text;
     }
-    countQuest++
 }
 
 function questionsArray(){
@@ -61,7 +76,6 @@ for(let i = 0; i < buttons.length; i++){
         for(let button of buttons){
             if(correctAnswers.includes(button.textContent)){
                 button.classList.add('correct');
-                // hitCount += 1;
                 console.log(`Certas: ${hitCount}`)
             }else{
                 button.classList.add('wrong');
@@ -89,7 +103,6 @@ let contador = setInterval( function (e){
 
    if(countdown == 0){
     clearInterval(contador);
-    teste();
    }
 }, 1000);
 
