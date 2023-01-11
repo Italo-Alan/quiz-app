@@ -42,7 +42,6 @@ function getQuestions(){
     document.querySelector('.question').textContent = arrayQuestions[countQuest].question;
     const buttons = document.querySelectorAll('.button');
     for(let i = 0; i < 4; i++){
-        console.log(arr[i])
         buttons[i].textContent = arrayQuestions[countQuest].answers[arr[i]].text;
     }
 }
@@ -63,7 +62,7 @@ function rightAnswers(){
         correctAnswers.push(right.answers[4].correct);
     }
 
-    return correctAnswers
+    return correctAnswers;
 }
 
 rightAnswers()
@@ -73,16 +72,28 @@ let buttons = document.querySelectorAll('.button');
 
 for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener('click', (e)=> {
+        if(correctAnswers.includes(buttons[i].textContent)){
+            
+            hitCount+= 1
+            console.log(`Certas: ${hitCount}`)
+        }
         for(let button of buttons){
+            if(buttons.disabled == false){
+                buttons.disbaled = 'true';
+            }
             if(correctAnswers.includes(button.textContent)){
                 button.classList.add('correct');
-                console.log(`Certas: ${hitCount}`)
+                if(!button.disabled){
+                    button.disbaled = 'true';
+                }
+                console.log(button.disabled)
             }else{
                 button.classList.add('wrong');
             }
         }
     })
 }
+console.log(hitCount)
 
 let nextButton = document.querySelector('.next_btn').addEventListener('click', teste);
 let seconds = document.querySelector('.time_seconds');
@@ -106,3 +117,4 @@ let contador = setInterval( function (e){
    }
 }, 1000);
 
+console.log(correctAnswers)

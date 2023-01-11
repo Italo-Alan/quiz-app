@@ -68,7 +68,7 @@ export const questions = [
     },
     {
         id: 6,
-        question: "Which is the correct JavaScript syntax to change the HTML content given below '\n' <p id=”test”>Hello World!</p>",
+        question: "Which is the correct JavaScript syntax to change the HTML content given below <p id=”test”>Hello World!</p>",
         answers: [
             {text: "document.getElementById(“test”).innerHTML = “Hello DataFlair!”"},
             {text: "document.getElementsById(“test”).innerHTML = “Hello DataFlair!”"},
