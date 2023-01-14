@@ -1,9 +1,5 @@
 import { questions } from './questions.js'
-let numbers = [];
-let arrayQuestions = [];
-let correctAnswers = [];
-let arr = [0,1,2,3];
-let count = 1;
+let numbers = [], arrayQuestions = [], correctAnswers = [],  arr = [0,1,2,3];
 let hitCount = 0;
 let countQuest = 0
 
@@ -26,16 +22,16 @@ randomNumbers()
 function randomOptions(array) {
 let currentIndex = array.length,  randomIndex;
 
-while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
 
-    [array[currentIndex], array[randomIndex]] = [
-    array[randomIndex], array[currentIndex]];
-}
+        [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
 
-return array;
-}
+    return array;
+};
 
 //Exibe as perguntas e opções
 function getQuestions(){
@@ -53,6 +49,8 @@ function questionsArray(){
 
     return arrayQuestions;
 }
+
+console.log(arrayQuestions[countQuest].answers[arr[0]].text)
 
 questionsArray();
 getQuestions();
@@ -93,19 +91,27 @@ for(let i = 0; i < buttons.length; i++){
         }
     })
 }
-console.log(hitCount)
 
-let nextButton = document.querySelector('.next_btn').addEventListener('click', teste);
+let nextButton = document.querySelector('.next_btn');
+nextButton.addEventListener('click', teste);
 let seconds = document.querySelector('.time_seconds');
-let countdown = 5;
+let countdown = 30;
 seconds.innerHTML = countdown;
-
+let count = 1;
+let finishButton = document.getElementById('finish_btn');
+finishButton.addEventListener('click', finishScreen);
 function teste(){
-    countdown = 5;
-    getQuestions();
+    countdown = 30;
+
     let times = document.querySelector('.timeQuestion');
     count++
     times.innerHTML = count;
+
+
+    if(count == 5){
+        nextButton.style.display = "none";
+        finishButton.style.display = "block";
+    }
 }
 
 let contador = setInterval( function (e){
@@ -117,4 +123,6 @@ let contador = setInterval( function (e){
    }
 }, 1000);
 
-console.log(correctAnswers)
+function finishScreen(){
+
+}

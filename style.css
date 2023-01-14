@@ -133,7 +133,8 @@ section .option_list .button{
     padding-left: 0px;
 }
 
-footer .next_btn{
+footer .next_btn,
+.finish_btn{
     height: 40px;
     padding: 0 14px;
     font-size: 1rem;
@@ -148,8 +149,13 @@ footer .next_btn{
     transition: all 0.3s ease;
 }
 
-footer .next_btn:hover{
+footer .next_btn:hover,
+.finish_btn:hover{
     background: #558dc9;
+}
+
+.finish_btn{
+    display: none;
 }
 
 .correct{
