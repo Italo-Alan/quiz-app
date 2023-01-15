@@ -16,7 +16,7 @@ function randomNumbers(){
     return numbers;
 }
 
-randomNumbers()
+randomNumbers();
 
 //Gera as opções trocadas;
 function randomOptions(array) {
@@ -37,20 +37,21 @@ let currentIndex = array.length,  randomIndex;
 function getQuestions(){
     document.querySelector('.question').textContent = arrayQuestions[countQuest].question;
     const buttons = document.querySelectorAll('.button');
+    console.log('foi chamado do Get');
     for(let i = 0; i < 4; i++){
         buttons[i].textContent = arrayQuestions[countQuest].answers[arr[i]].text;
     }
-}
+    countQuest++;
+};
 
 function questionsArray(){
     for(let quest of numbers){
         arrayQuestions.push(questions.find( e => e.id == quest));
     }
 
+
     return arrayQuestions;
 }
-
-console.log(arrayQuestions[countQuest].answers[arr[0]].text)
 
 questionsArray();
 getQuestions();
@@ -69,15 +70,17 @@ rightAnswers()
 let buttons = document.querySelectorAll('.button');
 
 for(let i = 0; i < buttons.length; i++){
+
     buttons[i].addEventListener('click', (e)=> {
+        clearInterval(contador);
         if(correctAnswers.includes(buttons[i].textContent)){
             
             hitCount+= 1
             console.log(`Certas: ${hitCount}`)
         }
         for(let button of buttons){
-            if(buttons.disabled == false){
-                buttons.disbaled = 'true';
+            if(button.disabled == false){
+                button.disbaled = 'true';
             }
             if(correctAnswers.includes(button.textContent)){
                 button.classList.add('correct');
@@ -100,13 +103,14 @@ seconds.innerHTML = countdown;
 let count = 1;
 let finishButton = document.getElementById('finish_btn');
 finishButton.addEventListener('click', finishScreen);
-function teste(){
-    countdown = 30;
 
+function teste(){
+    resetButtons();
+    getQuestions();
+    countdown = 30;
     let times = document.querySelector('.timeQuestion');
     count++
     times.innerHTML = count;
-
 
     if(count == 5){
         nextButton.style.display = "none";
@@ -115,14 +119,22 @@ function teste(){
 }
 
 let contador = setInterval( function (e){
-   countdown -= 1;
-   seconds.innerHTML = countdown;
-
-   if(countdown == 0){
-    clearInterval(contador);
-   }
+    countdown -= 1;
+    seconds.innerHTML = countdown;
+    
+    if(countdown == 0){
+        clearInterval(contador);
+    }
 }, 1000);
 
 function finishScreen(){
+    console.log('Finalizou e mudou a tela');
+}
+
+function resetButtons(){
+    for(let i = 0; i < buttons.length; i++){
+        buttons[i].classList.remove('correct');
+        buttons[i].classList.remove('wrong');
+    }
 
 }
