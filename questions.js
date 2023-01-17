@@ -79,7 +79,7 @@ export const questions = [
     },
     {
         id: 7,
-        question: "Do you know what will be the output of this code?'\n' console.log(3 > 2 > 1).",
+        question: "Do you know what will be the output of this code?" + "\n" + "console.log(3 > 2 > 1).",
         answers: [
             {text: "true"},
             {text: "false"},
@@ -90,7 +90,7 @@ export const questions = [
     },
     {
         id: 8,
-        question: "JavaScript File Has An Extension of: ",
+        question: "JavaScript file has an extension of: ",
         answers: [
             {text: ".java"},
             {text: ".js"},
@@ -101,7 +101,7 @@ export const questions = [
     },
     {
         id: 9,
-        question: "Which Of The Dialog Box Display a Message And a Data Entry Field?",
+        question: "Which pf the dialog box display a message and a data entry field?",
         answers: [
             {text: "alert()"},
             {text: "prompt()"},
@@ -156,7 +156,7 @@ export const questions = [
     },
     {
         id: 14,
-        question: "JavaScript is a _____ Side Scripting Language.",
+        question: "JavaScript is a _____ side scripting language.",
         answers: [
             {text: "Server"},
             {text: "Browser"},
@@ -167,7 +167,7 @@ export const questions = [
     },
     {
         id: 15,
-        question: "Why JavaScript is called as Lightweight Programming Language ?",
+        question: "Why JavaScript is called as Lightweight programming language ?",
         answers: [
             {text: "Because JS is client side scripting"},
             {text: "Because JS is available free of cost."},
@@ -288,7 +288,7 @@ export const questions = [
     },
     {
         id: 26,
-        question: "Why JavaScript Engine is needed ?",
+        question: "Why JavaScript engine is needed ?",
         answers: [
             {text: "Both Compiling & Interpreting the JavaScript."},
             {text: "Parsing the javascript."},
