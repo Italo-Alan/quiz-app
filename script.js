@@ -16,6 +16,7 @@ const resultBox = document.querySelector('.result_box');
 const finalResult = document.querySelector('.final_result');
 const restartButton = document.querySelector('.restart');
 const quitButton = document.querySelector('.quit');
+const congratulations = document.querySelector('.congratulations');
 
 //Gera a quantidade e os indices que serão usados no sistema geral
 function randomNumbers(){
@@ -173,10 +174,12 @@ function showFinalResult(){
     resultBox.style.display="block";
     finalResult.innerHTML = hitCount;
 
+    hitCount < 3 ? congratulations.innerHTML = "You need to study more !" :
+        hitCount <= 4 ? congratulations.innerHTML = "Good job!" :  congratulations.innerHTML = "Excellent !";  
+
     quitButton.addEventListener('click', () => {
         window.close();
     });
-
 
     restartButton.addEventListener('click', () =>{
         document.location.reload(true);

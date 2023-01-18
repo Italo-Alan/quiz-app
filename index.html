@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome Quiz Application</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/beced1c515.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="quiz_box">
         <header>
-            <div class="title">Quiz Fudido</div>
+            <div class="title">Programming Quiz</div>
             <div class="timer">
                 <div class="time_text">Time left</div>
                 <div class="time_seconds"></div>
@@ -23,32 +24,29 @@
             </div>
             <div class="option_list">
                 <div class="option">
-                    <button id="b1" class="button">Option 1 </button>
+                    <button id="b1" class="button"></button>
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
-                    <button id="b2" class="button">Option 2 </button>
+                    <button id="b2" class="button"></button>
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
-                    <button id="b3" class="button">Option 3 </button>
+                    <button id="b3" class="button"></button>
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
-                    <button id="b4" class="button">Option 4 </button>
+                    <button id="b4" class="button"></button>
                 </div>
             </div>
         </section>
         <footer>
             <div class="total_que">
                 <span>
-                    <p class="timeQuestion">1</p>
-                    of
-                    <p>5</p>
-                    Questions
+                    <p class="timeQuestion">1</p> of <p>5</p> Questions
                 </span>
             </div>
             <button id="next_btn" class="next_btn">Next Question</button>
@@ -62,7 +60,8 @@
         </div>
         <div class="complete_text"><h1>You've completed the Quiz!</h1></div>
         <div class="score_text">
-            <span>You got only <p class="final_result">0</p> out of <p>5</p> questions</span>
+            <p class="congratulations">Congratulations !</p>
+            <span>You got <p class="final_result">0</p> out of <p>5</p>questions.</span>
         </div>
         <div class="buttons">
             <button class="restart">Replay Quiz</button>

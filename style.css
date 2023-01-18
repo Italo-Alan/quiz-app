@@ -123,6 +123,12 @@ section .option_list .button{
     padding: 0 5px;
 }
 
+.score_text p.congratulations{
+    /* padding: 2px 0; */
+    font-weight: 600;
+    font-size: 1.6rem;
+} 
+
 .total_que span p:first-child{
     padding-left: 0px;
 }
@@ -144,7 +150,9 @@ footer .next_btn,
 }
 
 footer .next_btn:hover,
-.finish_btn:hover{
+.finish_btn:hover,
+.restart:hover,
+.quit:hover{
     background: #558dc9;
 }
 
@@ -190,7 +198,7 @@ footer .next_btn{
 
 .result_box .score_text span{
     display: flex;
-    margin: 15px 0;
+    margin: 10px 0;
     font-size: 1.4rem;
     flex-direction: row;
     justify-content: center;
@@ -220,4 +228,9 @@ footer .next_btn{
     transition: all 0.3s ease;
     background: #007bff;
     color: #FFF;
+}
+
+.option_list > i{
+    color: #000;
+    width: 300px;
 }
