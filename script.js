@@ -1,9 +1,9 @@
-import { questions } from './questions.js'
+import { questions } from './questions.js';
 let numbers = [], arrayQuestions = [], correctAnswers = [],  arr = [0,1,2,3];
 let hitCount = 0;
 let countQuest = 0;
 let nextButton = document.querySelector('.next_btn');
-nextButton.addEventListener('click', teste);
+nextButton.addEventListener('click', nextQuestion);
 let seconds = document.querySelector('.time_seconds');
 let countdown = 30;
 seconds.innerHTML = countdown;
@@ -13,6 +13,9 @@ finishButton.addEventListener('click', showFinalResult);
 let times = document.querySelector('.timeQuestion');
 const quizBox = document.querySelector('.quiz_box');
 const resultBox = document.querySelector('.result_box');
+const finalResult = document.querySelector('.final_result');
+const restartButton = document.querySelector('.restart');
+const quitButton = document.querySelector('.quit');
 
 //Gera a quantidade e os indices que serão usados no sistema geral
 function randomNumbers(){
@@ -50,7 +53,6 @@ randomOptions(arr);
 function getQuestions(){
     document.querySelector('.question').textContent = arrayQuestions[countQuest].question;
     const buttons = document.querySelectorAll('.button');
-    console.log('foi chamado do Get');
     for(let i = 0; i < 4; i++){
         buttons[i].textContent = arrayQuestions[countQuest].answers[arr[i]].text;
     };
@@ -86,17 +88,18 @@ function showAnswersOnClick(){
         buttons[i].addEventListener('click', (e)=> {
             for(let i = 0; i < 4 ; i++){
                 buttons[i].disabled = 'true';
-            }
-            clearInterval(stopCounting);
+            };
             
             nextButton.style.display="block";
+
             if(count == 5){
                 nextButton.style.display="none";
-            }
+            };
+
             if(correctAnswers.includes(buttons[i].textContent)){
                 hitCount+= 1;
-                console.log(`Certas: ${hitCount}`);
-            }
+            };
+
             for(let button of buttons){
                 if(correctAnswers.includes(button.textContent)){
                     button.classList.add('correct');
@@ -111,6 +114,7 @@ function showAnswersOnClick(){
 function showAnswers(){
     for(let button of buttons){
         nextButton.style.display="block";
+
         if(correctAnswers.includes(button.textContent)){
             button.classList.add('correct');
         }else{
@@ -121,33 +125,32 @@ function showAnswers(){
 
 showAnswersOnClick();
 
-
-function teste(){
-    // clearInterval(stopCounting);
+function nextQuestion(){
+    clearInterval(stopCounting);
     countdown = 31;
+
     for(let i = 0; i < 4 ; i++){
         buttons[i].disabled = false;
-    }
+    };
+
     resetButtons();
     getQuestions();
     showTime();
 
-    // showAnswersOnClick();
     count++;
     times.innerHTML = count;
 
     if(count === 5){
         finishButton.style.display = "block";
-    }
-}
+    };
+};
 
 function showTime(){
     let contador = setInterval( function (){
         countdown -= 1;
         seconds.innerHTML = countdown;
-        console.log('Contando do ShowTIme()')
+
         if(countdown == 0){
-            console.log('Parou pelo tempo');
             for(let i = 0; i < 4 ; i++){
                 buttons[i].disabled = 'true';
             }
@@ -155,35 +158,29 @@ function showTime(){
             showAnswers();
         };
     }, 1000);
+
+    for(let i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener('click', () => {clearInterval(contador)})
+    };
     
     return contador;
 };
 
-function stopShowTime(){
-    let contador = setInterval( function (e){
-        countdown -= 1;
-        seconds.innerHTML = countdown;
-        console.log('Contando do ShowTIme()')
-        if(countdown == 0){
-            console.log('Parou pelo tempo');
-
-            for(let i = 0; i < 4 ; i++){
-                buttons[i].disabled = 'true';
-            };
-
-            clearInterval(contador);
-            showAnswers();
-        };
-    }, 1000);
-    
-    return contador;
-};
-
-let stopCounting = stopShowTime();
+let stopCounting = showTime();
 
 function showFinalResult(){
     quizBox.style.display="none";
     resultBox.style.display="block";
+    finalResult.innerHTML = hitCount;
+
+    quitButton.addEventListener('click', () => {
+        window.close();
+    });
+
+
+    restartButton.addEventListener('click', () =>{
+        document.location.reload(true);
+    });
 };
 
 function resetButtons(){

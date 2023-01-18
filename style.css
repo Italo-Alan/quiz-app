@@ -183,16 +183,17 @@ footer .next_btn{
     margin-bottom: 10px;
 };
 
-div.complete_text{
+.complete_text > h1{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .result_box .score_text span{
     display: flex;
-    margin: 10px 0;
-    font-size: 1.3rem;
-    font-weight: 500;
+    margin: 15px 0;
+    font-size: 1.4rem;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .score_text span p{
