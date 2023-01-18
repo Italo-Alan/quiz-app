@@ -24,25 +24,21 @@
             <div class="option_list">
                 <div class="option">
                     <button id="b1" class="button">Option 1 </button>
-                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
                     <button id="b2" class="button">Option 2 </button>
-                    <!-- <div class="icon"><i class="fa fa-times"></i></div> -->
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
                     <button id="b3" class="button">Option 3 </button>
-                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
                 </div>
             </div>
             <div class="option_list">
                 <div class="option">
                     <button id="b4" class="button">Option 4 </button>
-                    <!-- <div class="icon"><i class="fa fa-check"></i></div> -->
                 </div>
             </div>
         </section>
@@ -55,10 +51,23 @@
                     Questions
                 </span>
             </div>
-            <button id="next_btn"class="next_btn">Next Question</button>
-            <button id="finish_btn"class="finish_btn">Finish Quiz</button>
+            <button id="next_btn" class="next_btn">Next Question</button>
+            <button id="finish_btn" class="finish_btn">Finish Quiz</button>
         </footer>
         <p id="frase"></p>
+    </div>
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span>And sorry, You got only <p>2</p> out of 5 questions</span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
     </div>
     <script src="script.js" type="module"></script>
 </body>

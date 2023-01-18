@@ -10,7 +10,8 @@ body,html{
 }
 
 .info_box,
-.quiz_box{
+.quiz_box,
+.result_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,8 +78,6 @@ body,html{
     background: #FFF;
 }
 
-
-
 .quiz_box section .que_text{
     font-size: 1.55rem;
     font-weight: 600;
@@ -105,11 +104,6 @@ section .option_list .button{
     font-weight: 500;
     transition: all 0.3s ease;
 }
-
-/* section .option_list .button:hover{
-    background: #cce5ff;
-    color: #004085;;
-} */
 
 .quiz_box footer{
     height: 60px;
@@ -154,6 +148,10 @@ footer .next_btn:hover,
     background: #558dc9;
 }
 
+footer .next_btn{
+    display: none;
+}
+
 .finish_btn{
     display: none;
 }
@@ -164,4 +162,61 @@ footer .next_btn:hover,
 
 .wrong{
     background: #fd7585;
+}
+
+.result_box{
+    background: #fff;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+}
+
+.result_box .icon{
+    font-size: 100px;
+    color: #007bff;
+    margin-bottom: 10px;
+};
+
+div.complete_text{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result_box .score_text span{
+    display: flex;
+    margin: 10px 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.score_text span p{
+    font-weight: 600;
+    padding: 0 4px;
+}
+
+.score_text .buttons{
+    display: flex;
+    margin: 20px 0;
+}
+
+.buttons button{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #007bff;
+    color: #FFF;
 }

@@ -2,6 +2,17 @@ import { questions } from './questions.js'
 let numbers = [], arrayQuestions = [], correctAnswers = [],  arr = [0,1,2,3];
 let hitCount = 0;
 let countQuest = 0;
+let nextButton = document.querySelector('.next_btn');
+nextButton.addEventListener('click', teste);
+let seconds = document.querySelector('.time_seconds');
+let countdown = 30;
+seconds.innerHTML = countdown;
+let count = 1;
+let finishButton = document.getElementById('finish_btn');
+finishButton.addEventListener('click', showFinalResult);
+let times = document.querySelector('.timeQuestion');
+const quizBox = document.querySelector('.quiz_box');
+const resultBox = document.querySelector('.result_box');
 
 //Gera a quantidade e os indices que serão usados no sistema geral
 function randomNumbers(){
@@ -73,21 +84,22 @@ let buttons = document.querySelectorAll('.button');
 function showAnswersOnClick(){
     for(let i = 0; i < buttons.length; i++){
         buttons[i].addEventListener('click', (e)=> {
+            for(let i = 0; i < 4 ; i++){
+                buttons[i].disabled = 'true';
+            }
             clearInterval(stopCounting);
+            
+            nextButton.style.display="block";
+            if(count == 5){
+                nextButton.style.display="none";
+            }
             if(correctAnswers.includes(buttons[i].textContent)){
                 hitCount+= 1;
                 console.log(`Certas: ${hitCount}`);
             }
             for(let button of buttons){
-                if(button.disabled == false){
-                    button.disbaled = 'true';
-                }
                 if(correctAnswers.includes(button.textContent)){
                     button.classList.add('correct');
-                    if(!button.disabled){
-                        button.disbaled = 'true';
-                    }
-                    console.log(button.disabled);
                 }else{
                     button.classList.add('wrong');
                 };
@@ -98,12 +110,9 @@ function showAnswersOnClick(){
 
 function showAnswers(){
     for(let button of buttons){
+        nextButton.style.display="block";
         if(correctAnswers.includes(button.textContent)){
             button.classList.add('correct');
-            if(!button.disabled){
-                button.disbaled = 'true';
-            }
-            console.log(button.disabled);
         }else{
             button.classList.add('wrong');
         };
@@ -112,36 +121,36 @@ function showAnswers(){
 
 showAnswersOnClick();
 
-let nextButton = document.querySelector('.next_btn');
-nextButton.addEventListener('click', teste);
-let seconds = document.querySelector('.time_seconds');
-let countdown = 30;
-seconds.innerHTML = countdown;
-let count = 1;
-let finishButton = document.getElementById('finish_btn');
-finishButton.addEventListener('click', finishScreen);
 
 function teste(){
+    // clearInterval(stopCounting);
+    countdown = 31;
+    for(let i = 0; i < 4 ; i++){
+        buttons[i].disabled = false;
+    }
     resetButtons();
     getQuestions();
-    countdown = 31;
     showTime();
-    let times = document.querySelector('.timeQuestion');
+
+    // showAnswersOnClick();
     count++;
     times.innerHTML = count;
 
-    if(count == 5){
-        nextButton.style.display = "none";
+    if(count === 5){
         finishButton.style.display = "block";
     }
 }
 
 function showTime(){
-    let contador = setInterval( function (e){
+    let contador = setInterval( function (){
         countdown -= 1;
         seconds.innerHTML = countdown;
-        
+        console.log('Contando do ShowTIme()')
         if(countdown == 0){
+            console.log('Parou pelo tempo');
+            for(let i = 0; i < 4 ; i++){
+                buttons[i].disabled = 'true';
+            }
             clearInterval(contador);
             showAnswers();
         };
@@ -150,16 +159,37 @@ function showTime(){
     return contador;
 };
 
+function stopShowTime(){
+    let contador = setInterval( function (e){
+        countdown -= 1;
+        seconds.innerHTML = countdown;
+        console.log('Contando do ShowTIme()')
+        if(countdown == 0){
+            console.log('Parou pelo tempo');
 
-let stopCounting = showTime();
+            for(let i = 0; i < 4 ; i++){
+                buttons[i].disabled = 'true';
+            };
 
-function finishScreen(){
-    console.log('Finalizou e mudou a tela');
+            clearInterval(contador);
+            showAnswers();
+        };
+    }, 1000);
+    
+    return contador;
+};
+
+let stopCounting = stopShowTime();
+
+function showFinalResult(){
+    quizBox.style.display="none";
+    resultBox.style.display="block";
 };
 
 function resetButtons(){
     for(let i = 0; i < buttons.length; i++){
         buttons[i].classList.remove('correct');
         buttons[i].classList.remove('wrong');
+        nextButton.style.display="none";
     };
 };
